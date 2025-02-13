@@ -1,0 +1,9 @@
+[project]
+author = "Carlos Alberto Fis Fernández"
+name = "hexagonal-app"
+version = "0.1.0"
+description = "Ejemplo sencillo de arquitectura hexagonal"
+readme = "README.md"
+requires-python = ">=3.13.0"
+dependencies = []
+
