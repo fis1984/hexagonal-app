@@ -243,7 +243,7 @@ async def create_user(command: CreateUserCommand, mediator: Mediator = Depends(C
 
 # Diagrama de Arquitectura
 
-![arquitectura-hexagonal](https://github.com/fis1984/hexagonal-app/blob/master/static%5Cimages%5Carquitectura-hexagonal.avif)
+![arquitectura-hexagonal](https://raw.githubusercontent.com/fis1984/hexagonal-app/refs/heads/master/static/images/arquitectura-hexagonal.avif)
 
 
 
