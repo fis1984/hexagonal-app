@@ -117,9 +117,7 @@ Los **puertos** son interfaces que definen cómo interactuar con el dominio. Por
 
 Los **casos de uso** encapsulan la lógica de negocio. Por ejemplo, el caso de uso ```CreateUserUseCase``` maneja la creación de un usuario.
 
-
-```
-from src.core.entities.user import User
+```from src.core.entities.user import User
 from src.core.ports.i_user_repository import IUserRepository
 from src.core.ports.i_unit_of_work import IUnitOfWork
 
