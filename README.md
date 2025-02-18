@@ -1,7 +1,7 @@
 
 Autor: **Carlos Alberto Fis Fernández**
 
-# Arquitectura Hexagonal con FastAPI: Guía Completa
+# Arquitectura Hexagonal con FastAPI
 
 ---
 En esta guía, exploraremos en detalle la implementación de una aplicación siguiendo la arquitectura hexagonal (también conocida como Ports and Adapters ) utilizando FastAPI , SQLAlchemy , Dependency Injector , Pydantic , y otros componentes clave. Esta arquitectura está diseñada para separar las capas de negocio de las dependencias externas, lo que permite un sistema más modular, testeable y mantenible.
@@ -12,7 +12,7 @@ En esta guía, exploraremos en detalle la implementación de una aplicación sig
 
 # Índice
 
-- [Arquitectura Hexagonal con FastAPI: Guía Completa](#arquitectura-hexagonal-con-fastapi-guía-completa)
+- [Arquitectura Hexagonal con FastAPI](#arquitectura-hexagonal-con-fastapi)
 - [Índice](#índice)
 - [Introducción a la Arquitectura Hexagonal](#introducción-a-la-arquitectura-hexagonal)
 - [Estructura del Proyecto](#estructura-del-proyecto)
@@ -30,6 +30,8 @@ En esta guía, exploraremos en detalle la implementación de una aplicación sig
 - [Diagrama de Arquitectura](#diagrama-de-arquitectura)
 - [Explicación Detallada de Cada Componente](#explicación-detallada-de-cada-componente)
 - [Comandos para Ejecutar la Aplicación](#comandos-para-ejecutar-la-aplicación)
+- [Herramientas para realizar análisis estático del código](#herramientas-para-realizar-análisis-estático-del-código)
+- [Variables de ambiente](#variables-de-ambiente)
 
 
 # Introducción a la Arquitectura Hexagonal
@@ -270,3 +272,23 @@ Cada componente tiene un propósito específico:
    ```
     uv run python src/presentation/main.py
    ```
+# Herramientas para realizar análisis estático del código
+
+1. [![linting: pylint](https://img.shields.io/badge/linting-pylint-yellowgreen)](https://github.com/pylint-dev/pylint)
+   - 
+
+2. [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
+   +  Instalación: `pip install black`
+   +  Uso: `black {source_file_or_directory}`
+
+# Variables de ambiente 
+
+```
+.env
+
+DATABASE_URL=mysql+mysqlconnector://root:<password>@localhost:3306/<nombre?base_datos>
+EMAIL_HOST=
+EMAIL_PORT=
+EMAIL_USER=
+EMAIL_PASSWORD=
+```
