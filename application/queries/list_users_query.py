@@ -1,4 +1,5 @@
 from pydantic import BaseModel
 
 class ListUsersQuery(BaseModel):
-    pass
+    name: str | None = None
+    email: str | None = None

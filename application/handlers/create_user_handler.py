@@ -1,6 +1,7 @@
 # src/application/handlers/create_user_handler.py
 from application.commands.create_user_command import CreateUserCommand
-from core.use_cases.create_user_use_case import CreateUserUseCase
+from application.use_cases.create_user_use_case import CreateUserUseCase
+
 
 class CreateUserHandler:
     def __init__(self, create_user_use_case: CreateUserUseCase):

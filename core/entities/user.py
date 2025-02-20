@@ -1,7 +1,8 @@
 from typing import Optional
 
 class User:    
-    id: Optional[int] = None
-    name: str
-    email: str
+    def __init__(self, name: str, email: str, id: Optional[int] = None):
+        self.id = id
+        self.name = name
+        self.email = email
 

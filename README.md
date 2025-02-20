@@ -18,7 +18,7 @@ En esta guía, exploraremos en detalle la implementación de una aplicación sig
 - [Estructura del Proyecto](#estructura-del-proyecto)
 - [Componentes Principales](#componentes-principales)
   - [Core](#core)
-    - [Entidades (```entities/user.py ```)](#entidades-entitiesuserpy-)
+    - [Entidades (```entities/user.py```)](#entidades-entitiesuserpy)
     - [Puertos (```ports/i_user_repository.py```)](#puertos-portsi_user_repositorypy)
     - [Casos de Uso (```use_cases/create_user_use_case.py```)](#casos-de-uso-use_casescreate_user_use_casepy)
   - [Application](#application)
@@ -33,9 +33,7 @@ En esta guía, exploraremos en detalle la implementación de una aplicación sig
 - [Herramientas para realizar análisis estático del código](#herramientas-para-realizar-análisis-estático-del-código)
 - [Variables de ambiente](#variables-de-ambiente)
 
-
 # Introducción a la Arquitectura Hexagonal
-
 
 La arquitectura hexagonal es un patrón de diseño que promueve la separación entre el dominio de la aplicación (lógica de negocio) y las dependencias externas (bases de datos, frameworks web, etc.). Esto se logra mediante:
 
@@ -43,7 +41,6 @@ Puertos : Interfaces que definen cómo interactuar con el dominio.
 Adaptadores : Implementaciones concretas de los puertos que conectan el dominio con el mundo exterior.
 
 # Estructura del Proyecto
-
 
 ```
 src/
@@ -55,11 +52,11 @@ src/
 │   ├── ports/
 │   │   ├── i_user_repository.py
 │   │   └── i_unit_of_work.py
-│   └── use_cases/
-│       ├── create_user_use_case.py
-│       ├── get_user_by_id_use_case.py
-│       └── list_users_use_case.py
 ├── application/
+│   ├── use_cases/
+│   │   ├── create_user_use_case.py
+│   │   ├── get_user_by_id_use_case.py
+│   │   └── list_users_use_case.py
 │   ├── commands/
 │   │   └── create_user_command.py
 │   ├── queries/
@@ -95,9 +92,10 @@ src/
 # Componentes Principales
 
 ## Core
+
 El Core contiene la lógica de negocio pura, desacoplada de cualquier tecnología específica. Aquí definimos las entidades, puertos y casos de uso.
 
-### Entidades (```entities/user.py ```)
+### Entidades (```entities/user.py```)
 
 Las `entidades` representan los objetos principales del dominio. En este caso, tenemos la entidad **User**.
 
@@ -151,6 +149,7 @@ class CreateUserCommand(BaseModel):
     email: str
 
 ```
+
 ### Mediador (`mediator/mediator.py`)
 
 El **mediador** coordina la ejecución de comandos y consultas.
@@ -245,43 +244,46 @@ async def create_user(command: CreateUserCommand, mediator: Mediator = Depends(C
 
 ![arquitectura-hexagonal](https://raw.githubusercontent.com/fis1984/hexagonal-app/refs/heads/master/static/images/arquitectura-hexagonal.avif)
 
-
-
 # Explicación Detallada de Cada Componente
 
 Cada componente tiene un propósito específico:
 
- - Core : Contiene la lógica de negocio pura.
- - Application : Coordina la ejecución de casos de uso.
- - Infrastructure : Implementa adaptadores para tecnologías externas.
- - Presentation : Expone la API REST.
-
+- Core : Contiene la lógica de negocio pura.
+- Application : Coordina la ejecución de casos de uso.
+- Infrastructure : Implementa adaptadores para tecnologías externas.
+- Presentation : Expone la API REST.
 
 # Comandos para Ejecutar la Aplicación
 
 1. Crear el entorno virtual:
-   ``` 
+
+   ```
     uv venv
     source .venv/bin/activate  # En Windows: .venv\Scripts\activate
    ```
+
 2. Instalar dependencias:
+
    ```
     uv pip install -r requirements.txt
    ```
+
 3. Iniciar la aplicación:
+
    ```
     uv run python src/presentation/main.py
    ```
+
 # Herramientas para realizar análisis estático del código
 
 1. [![linting: pylint](https://img.shields.io/badge/linting-pylint-yellowgreen)](https://github.com/pylint-dev/pylint)
-   - 
+   -
 
 2. [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
-   +  Instalación: `pip install black`
-   +  Uso: `black {source_file_or_directory}`
+   - Instalación: `pip install black`
+   - Uso: `black {source_file_or_directory}`
 
-# Variables de ambiente 
+# Variables de ambiente
 
 ```
 .env

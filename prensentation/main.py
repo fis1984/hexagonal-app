@@ -31,6 +31,9 @@ container.wire(modules=["infrastructure.web.controllers.user_controller"])
 # Rutas
 app.include_router(user_router, prefix="/users", tags=["users"])
 
+# Asignar el contenedor a la aplicación para accederlo globalmente
+# app.container = container
+
 # Crear todas las tablas
 # Función para crear tablas solo si no existen
 def create_tables_if_not_exist():
@@ -52,6 +55,6 @@ if __name__ == "__main__":
     create_tables_if_not_exist()
     
     import uvicorn
-    uvicorn.run(app, host="127.0.0.1", port=8000)
+    uvicorn.run("prensentation.main:app", host="127.0.0.1", port=8000, reload=True)
     
-    
+     
